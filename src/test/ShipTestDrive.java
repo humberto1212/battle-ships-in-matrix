@@ -15,13 +15,17 @@ public class ShipTestDrive {
        //-----------------------
        Ship ship = new Ship();
        ArrayList<String> ship1 = ship.NewShip();
+    //    ArrayList<String> ship2 = ship.NewShip();
+    //    ArrayList<String> ship3 = ship.NewShip();
 
         //----------------------
         //CREATE OBJ AND INIT PLACE SHIPS
        //----------------------
        GameHelper placeShips = new GameHelper();
 
-       placeShips.placeShip(ship1);  
+       placeShips.PlaceShip(ship1);
+    //    placeShips.PlaceShip(ship2);  
+    //    placeShips.PlaceShip(ship3);    
 
         //---------------------
         //SAVE OBJs IN SHIPS ARRAY
@@ -38,6 +42,8 @@ public class ShipTestDrive {
          }
 
 
+
+         
 
         // dot.setLocationCells(locations);
 
