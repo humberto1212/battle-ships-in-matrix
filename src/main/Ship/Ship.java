@@ -18,13 +18,13 @@ public class Ship {
 
 
 
-    //public void setLocationCells(ArrayList<Ship> locations) {
+    //public void setLocationCells(ArrayList<Ship> ) {
         //locationCells = locations;
          //for(int l: locations){
             //locationCells[l] = l;
             //locationCells = locations;
         // }
-   // }
+    //}
 
     // public String checkYourSelf(String guess){
 
