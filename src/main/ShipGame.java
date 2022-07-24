@@ -58,12 +58,12 @@ public class ShipGame {
         ArrayList<Ship> shipList = new ArrayList<Ship>(3);
 
         Ship sh1 = new Ship();
-        Ship sh2 = new Ship();
-        Ship sh3 = new Ship();
+        // Ship sh2 = new Ship();
+        // Ship sh3 = new Ship();
 
         shipList.add(sh1);
-        shipList.add(sh2);
-        shipList.add(sh3);
+        // shipList.add(sh2);
+        // shipList.add(sh3);
 
 
         //call placeShip() from helper
