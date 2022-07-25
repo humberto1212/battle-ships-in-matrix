@@ -11,10 +11,11 @@ import java.util.Random;
 public class GameHelper {
 
 
-    public ArrayList<String> PlaceShip(ArrayList<String> ship){
+    public ArrayList<String> PlaceShip(ArrayList<String> ship, int  placeShipUsed){
 
-      //VARs
-      int placeShipUsed = 0;
+      //the places stored in this Array can no longer be used
+      ArrayList<String> blockedPlaces =new ArrayList<String>();
+      //Matrix x-axis
       ArrayList<String> charsArray = new ArrayList<String>();
       charsArray.add("A");
       charsArray.add("B");
@@ -24,8 +25,13 @@ public class GameHelper {
       charsArray.add("F");
       charsArray.add("G");
 
-      if(placeShipUsed == 0){
+      System.out.println(placeShipUsed);
 
+
+      //---------------------
+      //    FIRST SHIP AND THIRD SHIP
+      //---------------------
+      if(placeShipUsed == 0 || placeShipUsed == 2){
         Random rand = new Random();
         int intRandom1 = rand.nextInt(5);
         int intRandom2 = intRandom1 + 1;
@@ -37,29 +43,63 @@ public class GameHelper {
         for(String r: charsArray){
           int indexRe = charsArray.indexOf(r);
           if(indexRe == randIntChar){
-            String place1 = intRandom1 + r;
-            String place2 = intRandom2 + r;
-            String place3 = intRandom3 + r;
+            String place1_1 = intRandom1 + r;
+            String place1_2 = intRandom2 + r;
+            String place1_3 = intRandom3 + r;
 
-            ship.add(place1);
-            ship.add(place2);
-            ship.add(place3);
+            ship.add(place1_1);
+            ship.add(place1_2);
+            ship.add(place1_3);
+
+            blockedPlaces.add(place1_1);
+            blockedPlaces.add(place1_2);
+            blockedPlaces.add(place1_3);
 
           }
         }
 
+        placeShipUsed = placeShipUsed + 1;
       }
- 
+
+      //---------------------
+      //    SECOND SHIP
+      //---------------------
+      if(placeShipUsed == 1){
+
+        Random rand = new Random();
+        int intRandom = rand.nextInt(7);
+
+        //rand for char
+        int randIntChar2_1 = rand.nextInt(5);
+        int randIntChar2_2 = randIntChar2_1 + 1;
+        int randIntChar2_3 = randIntChar2_1 + 2;
+
+        for(String r: charsArray){
+          int indexRandIntChar = charsArray.indexOf(r);
+
+          if(randIntChar2_1 == indexRandIntChar){
+            String place2_1 = intRandom + r;
+            ship.add(place2_1);
+            blockedPlaces.add(place2_1);
+          }
+
+
+          if(randIntChar2_2 == indexRandIntChar){
+            String place2_2 = intRandom + r;
+            ship.add(place2_2);
+            blockedPlaces.add(place2_2);
+          }
+
+          if(randIntChar2_3 == indexRandIntChar){
+            String place2_3 = intRandom + r;
+            ship.add(place2_3);
+            blockedPlaces.add(place2_3);
+          }        
+        }
+        placeShipUsed = placeShipUsed + 1;       
+      }
 
       return ship;
-
-      //ArrayList<Ship> locationCells = new ArrayList<Ship>();
-
-      // locationCells.add("A2");
-      // locationCells.add("B2");
-      // locationCells.add("C2");
-
-      //return locationCells;
     }
 
 
