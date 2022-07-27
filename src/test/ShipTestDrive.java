@@ -13,37 +13,41 @@ public class ShipTestDrive {
         //----------------------
         //CREATE AND INIT OBJ SHIP
        //-----------------------
-       Ship ship = new Ship();
-       ArrayList<String> ship1 = ship.NewShip();
-    //    ArrayList<String> ship2 = ship.NewShip();
-    //    ArrayList<String> ship3 = ship.NewShip();
+        Ship ship = new Ship();
+        ArrayList<String> ship1 = ship.NewShip();
+        ArrayList<String> ship2 = ship.NewShip();
+        ArrayList<String> ship3 = ship.NewShip();
 
         //----------------------
         //CREATE OBJ AND INIT PLACE SHIPS
        //----------------------
        GameHelper placeShips = new GameHelper();
 
-       placeShips.PlaceShip(ship1);
-    //    placeShips.PlaceShip(ship2);  
-    //    placeShips.PlaceShip(ship3);    
+        placeShips.PlaceShip(ship1, 0);
+        placeShips.PlaceShip(ship2, 1);  
+        placeShips.PlaceShip(ship3, 2);  
+        
+        
 
         //---------------------
         //SAVE OBJs IN SHIPS ARRAY
        //----------------------
        ArrayList<String> ShipsArray = new ArrayList<String>(3);
 
+       
         ShipsArray.addAll(ship1);
-        // ShipsArray.addAll(ship2);
-        // ShipsArray.addAll(ship3);
+        ShipsArray.addAll(ship2);
+        ShipsArray.addAll(ship3);
        
 
-         for(String s: ShipsArray ){
-             System.out.println(s);
-         }
+       
+        
+        System.out.println(ShipsArray);
+        
+        
 
 
-
-         
+        
 
         // dot.setLocationCells(locations);
 
