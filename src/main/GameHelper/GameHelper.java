@@ -12,9 +12,7 @@ public class GameHelper {
 
 
     public ArrayList<String> PlaceShip(ArrayList<String> ship, int  placeShipUsed){
-
-      //the places stored in this Array can no longer be used
-      ArrayList<String> blockedPlaces =new ArrayList<String>();
+      
       //Matrix x-axis
       ArrayList<String> charsArray = new ArrayList<String>();
       charsArray.add("A");
@@ -29,7 +27,7 @@ public class GameHelper {
 
 
       //---------------------
-      //    FIRST SHIP AND THIRD SHIP
+      // FIRST SHIP AND THIRD SHIP
       //---------------------
       if(placeShipUsed == 0 || placeShipUsed == 2){
         Random rand = new Random();
@@ -51,14 +49,9 @@ public class GameHelper {
             ship.add(place1_2);
             ship.add(place1_3);
 
-            blockedPlaces.add(place1_1);
-            blockedPlaces.add(place1_2);
-            blockedPlaces.add(place1_3);
-
           }
         }
-
-        placeShipUsed = placeShipUsed + 1;
+        
       }
 
       //---------------------
@@ -80,29 +73,30 @@ public class GameHelper {
           if(randIntChar2_1 == indexRandIntChar){
             String place2_1 = intRandom + r;
             ship.add(place2_1);
-            blockedPlaces.add(place2_1);
+           
           }
 
 
           if(randIntChar2_2 == indexRandIntChar){
             String place2_2 = intRandom + r;
             ship.add(place2_2);
-            blockedPlaces.add(place2_2);
+           
           }
 
           if(randIntChar2_3 == indexRandIntChar){
             String place2_3 = intRandom + r;
             ship.add(place2_3);
-            blockedPlaces.add(place2_3);
+         
+
           }        
         }
-        placeShipUsed = placeShipUsed + 1;       
+             
       }
-
+      //System.out.print(blockedPlaces);
       return ship;
     }
 
-
+    
     //--------------
     //Get User Input
     //--------------
