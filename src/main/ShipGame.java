@@ -84,7 +84,7 @@ public class ShipGame {
 
             //Set local result variable (miss)
             //repeat with each of the ship objects in the list
-                //call helper.checkYourSelf() to evaluate tge result
+                //call helper.checkYourSelf() to evaluate the result
                 // set the result kill or hit variable depending on the result
 
                 //If the ship is kill, remove ship from the list
