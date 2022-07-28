@@ -100,7 +100,7 @@ public class GameHelper {
     //--------------
     //Get User Input
     //--------------
-    public String getUserInput(String prompt) throws IOException{
+    public String GetUserInput(String prompt) throws IOException{
 
         System.out.print(prompt + ": ");
 
@@ -115,4 +115,22 @@ public class GameHelper {
             return hitNumberStr;
 
     }
+
+    //--------------
+    //Check if miss, hit or kill
+    //--------------
+    public Boolean CheckYourSelf(String guess, ArrayList<String> ships){
+      Boolean checked = false;
+
+      for(String s: ships){
+        if(s.equals(guess) ){
+          checked = true;
+          
+        }
+      }
+    
+      return checked;
+  
+  }
+
 }
