@@ -32,22 +32,34 @@ public class ShipTestDrive {
         //---------------------
         //SAVE OBJs IN SHIPS ARRAY
        //----------------------
-       ArrayList<String> ShipsArray = new ArrayList<String>(3);
+       ArrayList<ArrayList<String>> ShipsArray = new ArrayList<ArrayList<String>>(3);
 
        
-        ShipsArray.addAll(ship1);
-        ShipsArray.addAll(ship2);
-        ShipsArray.addAll(ship3);
-       
+        ShipsArray.add(ship1);
+        ShipsArray.add(ship2);
+        ShipsArray.add(ship3);
 
-       
-        
         System.out.println(ShipsArray);
-        
-        
 
+        //----------------------
+        //CHECK USER GUESS
+        //----------------------
+        GameHelper checkYourSelf = new GameHelper();
+
+        for(ArrayList<String> s: ShipsArray){
+            Boolean check = false;
+            check = checkYourSelf.CheckYourSelf("4D", s);
+            System.out.println(check);
+
+            if(check == true){
+                System.out.println("HIT!!");
+            }else{
+                System.out.println("MIZZ!!");
+            }
+        }
 
         
+    
 
         // dot.setLocationCells(locations);
 
