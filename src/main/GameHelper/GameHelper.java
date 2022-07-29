@@ -125,10 +125,8 @@ public class GameHelper {
       for(String s: ships){
         if(s.equals(guess) ){
           checked = true;
-          
         }
       }
-    
       return checked;
   
   }
