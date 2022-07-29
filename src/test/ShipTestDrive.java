@@ -46,17 +46,36 @@ public class ShipTestDrive {
         //----------------------
         GameHelper checkYourSelf = new GameHelper();
 
+        
+
         for(ArrayList<String> s: ShipsArray){
             Boolean check = false;
+            //"4D" is actually the guess value
             check = checkYourSelf.CheckYourSelf("4D", s);
-            System.out.println(check);
+            
+            
+
+            
 
             if(check == true){
-                System.out.println("HIT!!");
+                //int index = ShipsArray.indexOf(s);
+              
+                int index = s.indexOf("4D");
+
+                    s.remove(index);
+
+                    if(s.isEmpty()){
+                        System.out.println("KILL!!");
+                    }else{
+                        System.out.println("HIT!!");
+                    }
+           
             }else{
-                System.out.println("MIZZ!!");
+                System.out.println("MIZZ");
             }
         }
+
+        System.out.println(ShipsArray);
 
         
     
