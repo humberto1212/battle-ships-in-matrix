@@ -3,48 +3,21 @@ package src.main;
 import java.io.IOException;
 //import java.util.Random;
 
-        //import src.main.GameHelper.*;
+import src.main.GameHelper.GameHelper;
+//import src.main.GameHelper.*;
+import src.main.Ship.Ship;
 import src.main.Ship.Ship;
 
 import java.util.*;
 
 public class ShipGame {
     
+    int numOfGuesses = 0;
+    GameHelper helper = new GameHelper();
+    ArrayList<ArrayList<String>> ShipsArray = new ArrayList<ArrayList<String>>(3);
+    
     public static void main(String[] args) throws IOException{
-
-        //int numOfGuesses = 0;
-
-        //GameHelper helper = new GameHelper();
-        
-        //Array of Ships
-        //ArrayList<Ship> randomPositions = new ArrayList<Ship>(3);
-
-        //create Ship
-        //Ship sh = new Ship();
-
-        //set random location in array
-        //sh.setLocationCells(randomPositions);
-        
-        //String result = "";
-
-        //while(result != "kill"){
-
-            //Get user input
-            //String guess = helper.getUserInput("enter a number");
-
-                    //System.out.print(sp);
-
-                    // for (int cell: sp){
-                    //     System.out.print(cell);
-                    // }
-            
-
-            //result = sh.checkYourSelf(guess);
-            //numOfGuesses++;
-        //}//END WHILE
-
-        //System.out.print("congratulation, you made " + numOfGuesses + " guesses" );
-
+                    //Missing code
     }//MAIN
 
     public void setUpGame(){
@@ -55,13 +28,17 @@ public class ShipGame {
         //--------------------------
 
         //Array of Ships
-        ArrayList<Ship> shipList = new ArrayList<Ship>(3);
+       
+        Ship ship = new Ship();
+        ArrayList<String> ship1 = ship.NewShip();
+        ArrayList<String> ship2 = ship.NewShip();
+        ArrayList<String> ship3 = ship.NewShip();
 
-        Ship sh1 = new Ship();
-        // Ship sh2 = new Ship();
-        // Ship sh3 = new Ship();
+        helper.PlaceShip(ship1, 0);
+        helper.PlaceShip(ship2, 1);  
+        helper.PlaceShip(ship3, 2);  
 
-        shipList.add(sh1);
+        //shipList.add(sh1);
         // shipList.add(sh2);
         // shipList.add(sh3);
 
