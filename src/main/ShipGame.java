@@ -6,7 +6,6 @@ import java.io.IOException;
 import src.main.GameHelper.GameHelper;
 //import src.main.GameHelper.*;
 import src.main.Ship.Ship;
-import src.main.Ship.Ship;
 
 import java.util.*;
 
@@ -14,6 +13,7 @@ public class ShipGame {
     
     int numOfGuesses = 0;
     GameHelper helper = new GameHelper();
+    //Array of Ships
     ArrayList<ArrayList<String>> ShipsArray = new ArrayList<ArrayList<String>>(3);
     
     public static void main(String[] args) throws IOException{
@@ -27,8 +27,6 @@ public class ShipGame {
         //with name and location
         //--------------------------
 
-        //Array of Ships
-       
         Ship ship = new Ship();
         ArrayList<String> ship1 = ship.NewShip();
         ArrayList<String> ship2 = ship.NewShip();
@@ -38,13 +36,9 @@ public class ShipGame {
         helper.PlaceShip(ship2, 1);  
         helper.PlaceShip(ship3, 2);  
 
-        //shipList.add(sh1);
-        // shipList.add(sh2);
-        // shipList.add(sh3);
-
-
-        //call placeShip() from helper
-            //set the location of each ship depending on placeShip() result
+        ShipsArray.add(ship1);
+        ShipsArray.add(ship2);
+        ShipsArray.add(ship3);
     }
 
     public void startPlaying(){
