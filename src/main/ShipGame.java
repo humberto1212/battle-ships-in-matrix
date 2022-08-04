@@ -41,7 +41,34 @@ public class ShipGame {
         ShipsArray.add(ship3);
     }
 
-    public void startPlaying(){
+    public void startPlaying() throws IOException{
+
+        while(!ShipsArray.isEmpty()){
+           String userInput = helper.GetUserInput("try your luck");
+           
+
+           for(ArrayList<String> s: ShipsArray){
+                Boolean check = false;
+                check =  helper.CheckYourSelf(userInput, s);
+
+                if(check == true){
+                  
+                    int index = s.indexOf(userInput);
+    
+                        s.remove(index);
+    
+                        if(s.isEmpty()){
+                            System.out.println("KILL!!");
+                        }else{
+                            System.out.println("HIT!!");
+                        }
+                }else{
+                    System.out.println("MIZZ");
+                }
+            }
+        }
+
+
         //persist with the game, call helper.getUserInput() until all ships are remove from the game
             //call the checkUserGuess() to evaluate result
     }
