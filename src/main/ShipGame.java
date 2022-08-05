@@ -12,15 +12,16 @@ import java.util.*;
 public class ShipGame {
     
     int numOfGuesses = 0;
-    GameHelper helper = new GameHelper();
+    static GameHelper helper = new GameHelper();
     //Array of Ships
-    ArrayList<ArrayList<String>> ShipsArray = new ArrayList<ArrayList<String>>(3);
+    static ArrayList<ArrayList<String>> ShipsArray = new ArrayList<ArrayList<String>>(3);
     
-    public static void main(String[] args) throws IOException{
-                    //Missing code
+    public static void  main(String[] args) throws IOException{
+        setUpGame();
+        startPlaying();
     }//MAIN
 
-    public void setUpGame(){
+    public static void setUpGame(){
         //--------------------------
         //create ships Object
         //initialize ships Object
@@ -41,44 +42,48 @@ public class ShipGame {
         ShipsArray.add(ship3);
     }
 
-    public void startPlaying() throws IOException{
+    public static void startPlaying() throws IOException{
 
         while(!ShipsArray.isEmpty()){
            String userInput = helper.GetUserInput("try your luck");
            
-
-           for(ArrayList<String> s: ShipsArray){
-                Boolean check = false;
-                check =  helper.CheckYourSelf(userInput, s);
-
-                if(check == true){
-                  
-                    int index = s.indexOf(userInput);
-    
-                        s.remove(index);
-    
-                        if(s.isEmpty()){
-                            System.out.println("KILL!!");
-                        }else{
-                            System.out.println("HIT!!");
-                        }
-                }else{
-                    System.out.println("MIZZ");
-                }
-            }
-        }
-
+           checkUserGuess(userInput);
+         }
 
         //persist with the game, call helper.getUserInput() until all ships are remove from the game
             //call the checkUserGuess() to evaluate result
     }
 
-    public void checkUserGuess(){
+    public static String checkUserGuess(String userInput){
         //-----------------------------------------------
         //loops through all ships and call helper.checkYourSelf() 
             //Check if there is any hit or kill
             // ++ numberOfGuesses
         //----------------------------------------------
+        String result = "miss";
+
+        for(ArrayList<String> s: ShipsArray){
+            Boolean check = false;
+            check =  helper.CheckYourSelf(userInput, s);
+
+            if(check == true){
+              
+                int index = s.indexOf(userInput);
+
+                    s.remove(index);
+
+                    if(s.isEmpty()){
+                        result = "KILL!!";
+                    }else{
+                        result = "HIT!!";
+                    }
+            }else{
+                result = "MIZZ";
+            }
+            
+        }
+
+        return result;
 
             //Set local result variable (miss)
             //repeat with each of the ship objects in the list
