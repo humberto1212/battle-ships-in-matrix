@@ -40,6 +40,8 @@ public class ShipGame {
         ShipsArray.add(ship1);
         ShipsArray.add(ship2);
         ShipsArray.add(ship3);
+
+        
     }
 
     public static void startPlaying() throws IOException{
@@ -55,6 +57,7 @@ public class ShipGame {
     }
 
     public static String checkUserGuess(String userInput){
+        System.out.println(ShipsArray);
         //-----------------------------------------------
         //loops through all ships and call helper.checkYourSelf() 
             //Check if there is any hit or kill
@@ -69,11 +72,13 @@ public class ShipGame {
             if(check == true){
               
                 int index = s.indexOf(userInput);
-
+             
                     s.remove(index);
 
+                  
                     if(s.isEmpty()){
                         result = "KILL!!";
+
                     }else{
                         result = "HIT!!";
                     }
@@ -81,6 +86,22 @@ public class ShipGame {
                 result = "MIZZ";
             }
             
+        }
+
+        System.out.println(ShipsArray.get(0));
+
+        int index_0 = ShipsArray.indexOf(ShipsArray.get(0));
+        int index_1 = ShipsArray.indexOf(ShipsArray.get(1));
+        int index_2 = ShipsArray.indexOf(ShipsArray.get(2));
+
+         if(ShipsArray.get(0).isEmpty()){
+             ShipsArray.remove(index_0);
+         }
+         if(ShipsArray.get(1).isEmpty()){
+            ShipsArray.remove(index_1);
+        }
+        if(ShipsArray.get(2).isEmpty()){
+            ShipsArray.remove(index_2);
         }
 
         return result;
