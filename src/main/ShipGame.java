@@ -10,8 +10,8 @@ import src.main.Ship.Ship;
 import java.util.*;
 
 public class ShipGame {
-    
-    int numOfGuesses = 0;
+    static int kills = 0;
+     static int numOfGuesses = 0;
     static GameHelper helper = new GameHelper();
     //Array of Ships
     static ArrayList<ArrayList<String>> ShipsArray = new ArrayList<ArrayList<String>>(3);
@@ -19,6 +19,9 @@ public class ShipGame {
     public static void  main(String[] args) throws IOException{
         setUpGame();
         startPlaying();
+        if(kills == 3){
+            finishGame();
+        }
     }//MAIN
 
     public static void setUpGame(){
@@ -46,10 +49,11 @@ public class ShipGame {
 
     public static void startPlaying() throws IOException{
 
-        while(!ShipsArray.isEmpty()){
+        while(kills != 3){
            String userInput = helper.GetUserInput("try your luck");
            
-           checkUserGuess(userInput);
+           String gameResult = checkUserGuess(userInput);
+           System.out.println(gameResult);
          }
 
         //persist with the game, call helper.getUserInput() until all ships are remove from the game
@@ -63,6 +67,8 @@ public class ShipGame {
             //Check if there is any hit or kill
             // ++ numberOfGuesses
         //----------------------------------------------
+      ++ numOfGuesses;
+
         String result = "miss";
 
         for(ArrayList<String> s: ShipsArray){
@@ -72,36 +78,18 @@ public class ShipGame {
             if(check == true){
               
                 int index = s.indexOf(userInput);
-             
+            
                     s.remove(index);
 
-                  
                     if(s.isEmpty()){
                         result = "KILL!!";
+                        kills = kills + 1;
 
                     }else{
                         result = "HIT!!";
                     }
-            }else{
-                result = "MIZZ";
             }
             
-        }
-
-        System.out.println(ShipsArray.get(0));
-
-        int index_0 = ShipsArray.indexOf(ShipsArray.get(0));
-        int index_1 = ShipsArray.indexOf(ShipsArray.get(1));
-        int index_2 = ShipsArray.indexOf(ShipsArray.get(2));
-
-         if(ShipsArray.get(0).isEmpty()){
-             ShipsArray.remove(index_0);
-         }
-         if(ShipsArray.get(1).isEmpty()){
-            ShipsArray.remove(index_1);
-        }
-        if(ShipsArray.get(2).isEmpty()){
-            ShipsArray.remove(index_2);
         }
 
         return result;
@@ -113,16 +101,17 @@ public class ShipGame {
 
                 //If the ship is kill, remove ship from the list
 
-            //Display result 
     }
 
-    public void finishGame(){
+    public static void finishGame(){
         //print the result at the end of the game
         //---------------------------------------
 
-        //display a generic GAMEOVER result message 
-        // if numberOfGuesses is small display a "Well done" 
-        // else display a bad result
+        if(numOfGuesses < 15){
+            System.out.println("Well done," + "you made " + numOfGuesses + " moves");
+        }else{
+            System.out.println("game over");
+        }
     }
 
 
