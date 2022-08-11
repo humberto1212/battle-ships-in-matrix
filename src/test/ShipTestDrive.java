@@ -23,9 +23,9 @@ public class ShipTestDrive {
        //----------------------
        GameHelper placeShips = new GameHelper();
 
-        placeShips.PlaceShip(ship1, 0);
-        placeShips.PlaceShip(ship2, 1);  
-        placeShips.PlaceShip(ship3, 2);  
+        placeShips.placeShip(ship1, 0);
+        placeShips.placeShip(ship2, 1);  
+        placeShips.placeShip(ship3, 2);  
         
         
 
@@ -51,7 +51,7 @@ public class ShipTestDrive {
         for(ArrayList<String> s: ShipsArray){
             Boolean check = false;
             //"4D" is actually the guess value
-            check = checkYourSelf.CheckYourSelf("4D", s);
+            check = checkYourSelf.checkYourSelf("4D", s);
             
             
 
