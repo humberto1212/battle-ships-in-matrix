@@ -10,21 +10,20 @@ import src.main.Ship.Ship;
 import java.util.*;
 
 public class ShipGame {
-    static int kills = 0;
-     static int numOfGuesses = 0;
-    static GameHelper helper = new GameHelper();
+ int kills = 0;
+ int numOfGuesses = 0;
+ GameHelper helper = new GameHelper();
     //Array of Ships
-    static ArrayList<ArrayList<String>> ShipsArray = new ArrayList<ArrayList<String>>(3);
+ ArrayList<ArrayList<String>> ShipsArray = new ArrayList<ArrayList<String>>(3);
     
     public static void  main(String[] args) throws IOException{
-        setUpGame();
-        startPlaying();
-        if(kills == 3){
-            finishGame();
-        }
+
+        ShipGame game = new ShipGame();
+        game.setUpGame();
+        game.startPlaying();
     }//MAIN
 
-    public static void setUpGame(){
+    public void setUpGame(){
         //--------------------------
         //create ships Object
         //initialize ships Object
@@ -36,9 +35,9 @@ public class ShipGame {
         ArrayList<String> ship2 = ship.NewShip();
         ArrayList<String> ship3 = ship.NewShip();
 
-        helper.PlaceShip(ship1, 0);
-        helper.PlaceShip(ship2, 1);  
-        helper.PlaceShip(ship3, 2);  
+        helper.placeShip(ship1, 0);
+        helper.placeShip(ship2, 1);  
+        helper.placeShip(ship3, 2);  
 
         ShipsArray.add(ship1);
         ShipsArray.add(ship2);
@@ -47,20 +46,21 @@ public class ShipGame {
         
     }
 
-    public static void startPlaying() throws IOException{
+    public void startPlaying() throws IOException{
 
         while(kills != 3){
-           String userInput = helper.GetUserInput("try your luck");
+           String userInput = helper.getUserInput("try your luck");
            
            String gameResult = checkUserGuess(userInput);
            System.out.println(gameResult);
          }
 
+        finishGame();
         //persist with the game, call helper.getUserInput() until all ships are remove from the game
             //call the checkUserGuess() to evaluate result
     }
 
-    public static String checkUserGuess(String userInput){
+    public String checkUserGuess(String userInput){
         System.out.println(ShipsArray);
         //-----------------------------------------------
         //loops through all ships and call helper.checkYourSelf() 
@@ -73,7 +73,7 @@ public class ShipGame {
 
         for(ArrayList<String> s: ShipsArray){
             Boolean check = false;
-            check =  helper.CheckYourSelf(userInput, s);
+            check =  helper.checkYourSelf(userInput, s);
 
             if(check == true){
               
@@ -103,7 +103,7 @@ public class ShipGame {
 
     }
 
-    public static void finishGame(){
+    public void finishGame(){
         //print the result at the end of the game
         //---------------------------------------
 
