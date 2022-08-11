@@ -11,7 +11,7 @@ import java.util.Random;
 public class GameHelper {
 
 
-    public ArrayList<String> PlaceShip(ArrayList<String> ship, int  placeShipUsed){
+    public ArrayList<String> placeShip(ArrayList<String> ship, int  placeShipUsed){
       
       //Matrix x-axis
       ArrayList<String> charsArray = new ArrayList<String>();
@@ -100,7 +100,7 @@ public class GameHelper {
     //--------------
     //Get User Input
     //--------------
-    public String GetUserInput(String prompt) throws IOException{
+    public String getUserInput(String prompt) throws IOException{
 
         System.out.print(prompt + ": ");
 
@@ -119,7 +119,7 @@ public class GameHelper {
     //--------------
     //Check if miss, hit or kill
     //--------------
-    public Boolean CheckYourSelf(String guess, ArrayList<String> ships){
+    public Boolean checkYourSelf(String guess, ArrayList<String> ships){
       Boolean checked = false;
 
       for(String s: ships){
